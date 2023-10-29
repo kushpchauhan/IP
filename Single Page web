@@ -1,0 +1,80 @@
+//App.js
+import './App.css';
+
+import {BrowserRouter,Route,Routes} from "react-router-dom";
+import Home from './Home';
+import About from './About';
+import Contact from './Contact';
+
+function App() {
+  return (
+<BrowserRouter>
+<Routes>
+    <Route path="/" element={<Home />}/>
+    <Route path="/about" element={<About/>}/>
+    <Route path="/Contact" element={<Contact/>}/>
+
+</Routes>
+
+</BrowserRouter>
+  );
+}
+
+export default App;
+
+//Header.js
+import React from 'react'
+import { NavLink } from "react-router-dom"
+
+const Header = () => {
+  return (
+    <header>
+      <a href="#">Logo</a>
+<nav>
+<ul className='head'>
+    <li><NavLink to="/">Home</NavLink></li>
+    <li><NavLink to="/About">About Us</NavLink></li>
+    <li><NavLink to="/Contact">Contact</NavLink></li>
+</ul>
+
+</nav>
+    </header>
+  )
+}
+
+export default Header;
+
+//About.js
+import React from 'react'
+import { NavLink} from 'react-router-dom';
+import Header from './component/Header'
+
+const About = () => {
+  return (
+    <div>
+
+      <Header/>
+    <h1>About Us</h1>
+    <p>We are a company dedicated to...</p>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Position</th>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>CEO</td>
+      </tr>
+      <tr>
+        <td>Jane</td>
+        <td>CTO</td>
+      </tr>
+    </table>
+  </div>
+);
+
+  
+};
+
+export default About;
+
