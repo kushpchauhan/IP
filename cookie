@@ -1,0 +1,24 @@
+var express=require("express")
+var app=express()
+
+var cookieParser=require("cookie-parser")
+app.use(cookieParser())
+
+
+app.get('/',(req,res)=>{
+    res.cookie('name','kush',{expire:300}).send("cookie set")
+
+
+})
+
+app.get('/clear',(req,res)=>{
+    res.clearCookie('name')
+    res.send("cookie cleared")
+
+})
+// npm init
+// npm i express-save
+// npm i –save cookie-parser
+// npm i nodemon
+
+app.listen(3000)
