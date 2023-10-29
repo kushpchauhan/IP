@@ -1,0 +1,100 @@
+var http=require('http');
+const fs=require("fs");
+
+
+
+http.createServer(function(req,res){
+    res.write('hello world');
+    res.end("hello")
+
+}).listen(8080)
+ 
+
+//read file
+
+function read(){
+fs.readFile('./hello.txt',(err,data)=>{
+
+if(err){
+    console.log(err);
+}
+console.log(data.toString())
+
+})
+}
+// //append
+function appendFile(){
+fs.appendFile('hello.txt','\nHow are you',(err)=>{
+if(err){
+    throw err;
+}
+console.log('Data appended to file');
+});
+}
+//delete 
+function Delete(){
+fs.unlink('demo.txt',(err)=>{
+    if (err){throw err;}
+    console.log('file dileted');
+})
+}
+//rename
+function rename(){
+fs.rename('./demo1.txt','demo2.txt',(err)=>{
+if(err){
+    console.log(err);
+}
+console.log('rename succesfull')
+})
+}
+//copy
+
+function Copy(){ 
+fs.copyFile('./hello.txt','demo2.txt',(err)=>{
+    if(err){console.log(err);}
+    console.log('copied successfully');
+})
+}
+//access
+function access(){
+fs.access('hello.txt', fs.f_ok,(err)=>{
+    if(err){
+        console.error("Cannot access the file");
+    }
+    console.log("File Access")
+})
+}
+function Open(){
+fs.open('missile.txt','w',(err)=>
+{
+    if(err) {console.log(err);}
+    console.log("file Saved")
+})
+}
+
+
+console.log(`1.Read 2.Append 3.Rename 4.Copy 5.Access 6.Delete 7.open `)
+const prompt=require('prompt-sync')({sigint:true})
+const choice=parseInt(prompt('Enter your choice'))
+
+switch(choice){
+    case 1:read()
+    break;
+    case 2:appendFile()
+    break;
+    case 3:rename()
+    break;
+    case 4:Copy()
+    break;
+    case 5:access()
+    break;
+    case 6:Delete()
+    break;
+    case 7:Open()
+        break;
+
+}
+
+
+
+
