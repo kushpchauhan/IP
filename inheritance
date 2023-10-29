@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+var ch=parseInt(prompt("enter your choice"))
+switch (ch) {
+    case 1:
+    class accholder{
+constructor(accnum,name,age,balance){
+    this.accnum=accnum
+    this.name=name
+    this.age=age
+    this.balance=balance
+
+}
+
+dsplay(){
+    console.log(`acc no:`,this.accnum)
+    console.log(`name:`,this.name)
+    console.log(`age:`,this.age)
+    console.log(`bal`,this.balance)
+    console.log("  ")
+}
+}
+var obj=new accholder(211010,"kush",20,100000000)
+obj.dsplay()
+var obj1=new accholder(211008,"jeren",20,1000000000)
+obj1.dsplay()
+        
+        break;
+case 2:
+class calculator{
+
+constructor(len,widht){
+    this.len=len
+    this.widht=widht
+}
+}
+class rect extends calculator{
+    constructor(radius,len,widht){
+        super(len,widht)
+        this.radius=radius
+    }
+    dispalyarearect(){
+
+        return console.log(this.len*this.widht)
+    }
+
+}
+
+class circleArea extends rect{
+   
+circle(){
+    return console.log(Math.PI*this.radius*this.radius)
+}
+
+}
+var obj=new circleArea(5,4,10)
+obj.dispalyarearect()
+obj.circle()
+
+
+    default:
+        break;
+}
+
+
+    </script>
+</body>
+</html>
